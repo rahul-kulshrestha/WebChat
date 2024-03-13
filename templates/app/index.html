@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Web</title>
+    
+</head>
+<body>
+    <h1>Chat Web</h1>
+    <lable>Chat with : </lable>
+    <select name="user" id="user">
+        {% for user in users %}
+        <option value={{user.username}}>{{user.username}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+   <textarea name="" id="msglist" cols="80" rows="20">
+    {% for m in msg %}
+    {{m.sender }}  : {{ m.message}}
+    {% endfor %}
+   </textarea><br>
+    <input type="text" name="" id="msg"><br>
+    <input type="button" value="send" id="send"><br>
+    {% comment %} {{group_name|json_script:"groupName"}} {% endcomment %}
+
+    </div>
+    <script src={% static "app/js/javascript.js" %}></script>
+</body>
+</html>
